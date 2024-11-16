@@ -19,9 +19,25 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #6699CC">
-    PHP Complete CRUD application
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-dark fs-5 mb-5" style="background-color: #72A0C1">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Page de client</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="produits.php">Page de produits</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 
   <div class="container">
   <?php
@@ -33,7 +49,7 @@
 </div>';
   }
   ?>
-   <a href="add_new.php" class= "btn btn-dark mb-3">Ajouter un nouvel utilisateur</a>
+   <a href="add_new.php" class= "btn btn-dark mb-3" style ="background-color:#545AA7;border-color= #545AA7">Ajouter un nouvel utilisateur</a>
    <form action="" method="get" class="mb-3">
   <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
 </form>      
@@ -128,7 +144,19 @@
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentLocation = window.location.href;
+
+  // Boucle pour comparer l'URL actuelle avec chaque lien de navigation
+  navLinks.forEach(link => {
+    if (link.href === currentLocation) {
+      // Ajout de la classe 'active' si les URLs correspondent
+      link.classList.add('active');
+    }
+  });
+
+  </script>
 
 </body>
 

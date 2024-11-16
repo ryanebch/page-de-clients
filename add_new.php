@@ -46,8 +46,23 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #6699CC">
-    PHP Complete CRUD application
+<nav class="navbar navbar-expand-lg navbar-dark fs-5 mb-5" style="background-color: #72A0C1">
+<div class="container-fluid">
+    <a class="navbar-brand" href="index.php">PHP CRUD OPERATION</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="client.php">Page de client</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="produits.php">Page de produits</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   </nav>
   <div class="container">
     <div class="text-center mb-4">
