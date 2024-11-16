@@ -34,7 +34,10 @@
   }
   ?>
    <a href="add_new.php" class= "btn btn-dark mb-3">Ajouter un nouvel utilisateur</a>
-      <table class="table table-hover text-center">
+   <form action="" method="get" class="mb-3">
+  <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
+</form>      
+<table class="table table-hover text-center">
       <thead class="table-dark">
         <tr>
           <th scope="col">ID</th>
@@ -51,6 +54,14 @@
         include "db_conn.php";
 
         $sql="SELECT * FROM `crud`";
+        
+        $search_term = isset($_GET['search']) ? $_GET['search'] : '';
+        
+        if (!empty($search_term)) {
+          $sql = "SELECT * FROM `crud` WHERE `prénom` LIKE '%$search_term%' OR `nom` LIKE '%$search_term%' OR `email` LIKE '%$search_term%'";
+        } else {
+        $sql = "SELECT * FROM `crud`";
+      }
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)){
          ?>
@@ -72,6 +83,45 @@
         
         ?>
       </tbody>
+      <?php
+      if(mysqli_num_rows($result)>0){
+        while ($row = mysqli_fetch_assoc($result)){
+          ?>
+          <tr>
+            <td class="d-flex align-items-center">
+              <img 
+              style ="
+              height: 50px;
+              width: 50px; 
+              object-fit:cover;
+              border-radius: 100%;"src="<?php echo $row["image"]?>"
+              alt="Image not found">
+              <div class="ms-2">
+                <span class="h6">
+                  <?php echo $row["prénom"]?>
+                </span>
+                <br>
+                <small class="fw-medium text-body-secondary"></small>
+                ID: <?php echo $row["id"]?>
+              </div>
+        </td>
+        <td><?php echo $row["prénom"]?></td>
+        <td><?php echo $row["email"]?></td>
+        <td><?php echo $row["tel"]?></td>
+        </tr>
+        <?php
+        }
+      } else {
+        echo "Pas de résultats";
+      }
+      ?>
+        <?php
+  $search = isset($_GET['search']) ? $_GET['search'] : '';
+  if (!empty($search)) {
+      $sql = "SELECT * FROM `crud` WHERE `prénom` LIKE '%$search%' OR `nom` LIKE '%$search%' OR `email` LIKE '%$search%'";
+  } else {
+      $sql = "SELECT * FROM `crud`";
+  }?>
     </table>
     </div>
 
@@ -83,3 +133,6 @@
 </body>
 
 </html>
+<?php
+mysqli_close($conn);
+?>
