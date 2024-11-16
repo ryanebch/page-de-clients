@@ -14,12 +14,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="./css/style.css">
   <title>PHP CRUD application</title>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fs-5 mb-5" style="background-color: #72A0C1">
+<nav class="navbar_f navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Nouvelle Barre</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark fs-6 mb-5 fixed-top" style="background-color: #72A0C1">
   <div class="container-fluid">
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
@@ -36,7 +55,6 @@
     </div>
   </div>
 </nav>
-
 
 
   <div class="container">
@@ -148,10 +166,8 @@
   const navLinks = document.querySelectorAll('.nav-link');
   const currentLocation = window.location.href;
 
-  // Boucle pour comparer l'URL actuelle avec chaque lien de navigation
   navLinks.forEach(link => {
     if (link.href === currentLocation) {
-      // Ajout de la classe 'active' si les URLs correspondent
       link.classList.add('active');
     }
   });

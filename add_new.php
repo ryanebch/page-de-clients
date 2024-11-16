@@ -41,21 +41,22 @@ if(isset($_POST['submit'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+
 
   <title>PHP CRUD application</title>
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fs-5 mb-5" style="background-color: #72A0C1">
-<div class="container-fluid">
-    <a class="navbar-brand" href="index.php">PHP CRUD OPERATION</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+          <a class="nav-link" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="client.php">Page de client</a>
+          <a class="nav-link" href="index.php">Page de client</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="produits.php">Page de produits</a>
@@ -63,7 +64,8 @@ if(isset($_POST['submit'])){
       </ul>
     </div>
   </div>
-  </nav>
+</nav>
+
   <div class="container">
     <div class="text-center mb-4">
       <h3>Ajouter un nouvel utilisateur</h3>

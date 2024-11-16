@@ -1,0 +1,43 @@
+table {
+  background-color: white;
+}
+
+table th,
+table td {
+  background-color: white;
+}
+
+body {
+  background-color: #F1ECF3;
+}
+
+
+.navbar_f {
+  background-color: white;
+}
+
+.navbar_f .nav-link {
+  color: black !important;
+}
+
+.navbar_f .nav-link:hover {
+  color: #555;
+  /* Change la couleur au survol, vous pouvez ajuster selon vos préférences */
+}
+
+
+.navbar {
+  background: #4682B4;
+  position: sticky;
+}
+
+
+.nav-link {
+  color: white !important;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  color: #E1EBEE !important;
+}
