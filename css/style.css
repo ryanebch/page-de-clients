@@ -5,86 +5,37 @@ table {
 table th,
 table td {
   background-color: white;
-  padding: 10px;
 }
 
 body {
   background-color: #F1ECF3;
 }
 
+
 .navbar_f {
   background-color: white;
-  padding-top: -5px;
 }
-
-.navbar_f .navbar-nav {
-  display: flex;
-  align-items: center;
-}
-
-.navbar_f .form-inline {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-bottom: 5px;
-}
-
-.navbar_f .form-control {
-  margin-right: 500px;
-  margin-bottom: 5px;
-
-}
-
 
 .navbar_f .nav-link {
   color: black !important;
-  margin-bottom: 5px;
-  font-weight: bold;
-  margin: 0 50px;
 }
 
 .navbar_f .nav-link:hover {
-  margin-bottom: 5px;
   color: #555;
+  /* Change la couleur au survol, vous pouvez ajuster selon vos préférences */
 }
+
 
 .navbar {
-  background-color: #4682B4;
+  background: #4682B4;
   position: sticky;
-  top: 0;
-  z-index: 1000;
-  margin-bottom: 5px;
-
 }
 
-.navbar-nav {
-  font-size: 1.2rem;
-}
-
-.navbar_f .navbar-nav {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-
-}
-
-.navbar_f .navbar-brand {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: white !important;
-}
-
-.navbar_f .navbar-toggler-icon {
-  margin-bottom: 5px;
-  background-color: white;
-}
 
 .nav-link {
   color: white !important;
   font-weight: bold;
-  margin: 0 50px;
-  font-size: rem;
-
+  margin: 0 10px;
 }
 
 .nav-link:hover {
