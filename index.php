@@ -25,7 +25,7 @@
     <div class="h-bar">
       <div class="logo">
         <img src="./images/tooth.png" alt="Logo">
-        <h1>Cabinet<span class="highlight">Plus</span></h1>
+        <a href="index.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
       </div>
       <nav class="nav-q">
         <a href="#">Accueil</a>

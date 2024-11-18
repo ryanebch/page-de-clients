@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
     <div class="h-bar">
       <div class="logo">
         <img src="./images/tooth.png" alt="Logo">
-        <h1>Cabinet<span class="highlight">Plus</span></h1>
+        <a href="index.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
       </div>
       <nav class="nav-q">
         <a href="#">Accueil</a>
@@ -144,9 +144,9 @@ if(isset($_POST['submit'])){
             <label for="femme" class="form-input-label">Femme</label>
           </div>
           <div>
-            <button type="submit" class="btn btn-success" name="submit">Sauvegarder</button>
+            <button type="submit" class="btn btn" name="submit">Sauvegarder</button>
 
-            <a href="index.php" class="btn btn-danger">Annuler</a>
+            <a href="index.php" class="btn ">Annuler</a>
           </div>
 
       </form>
