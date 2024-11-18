@@ -48,30 +48,70 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fs-5 mb-5" style="background-color: #72A0C1">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Page de client</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="produits.php">Page de produits</a>
-        </li>
-      </ul>
+<header class="header fixed-top">
+    <div class="h-bar">
+      <div class="logo">
+        <img src="./images/tooth.png" alt="Logo">
+        <h1>Cabinet<span class="highlight">Plus</span></h1>
+      </div>
+      <nav class="nav-q">
+        <a href="#">Accueil</a>
+        <a href="#">Patients</a>
+        <a href="#">Prothèses</a>
+        <a href="#">Calendrier</a>
+        <div class="dropdown">
+          <a href="#suivre" class="suivre" aria-haspopup="true">Suivre</a>
+          <ul class="suivre-menu">
+            <li><a href="#suivi-produits">Suivi des Produits</a></li>
+            <li><a href="#suivi-achats">Suivi des Achats</a></li>
+            <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
+          </ul>
+        </div>
+      </nav>
+      <button class="profile-circle">Connexion</button>
+
     </div>
+  </header>
+<main>
+  <div class="side-nav" style="margin-left:-182px;">
+    <div class="user">
+      <img src="images/midune.jpg" class="user-img">
+      <div>
+        <h2>midune</h2>
+        <p>midune@gmail.com</p>
+        </div>
+    </div>
+    <ul>
+      <a href="index.php"><li><img src="images/dashboard.png">
+        <p>Dashboard</p>
+      </li></a>
+      <a href="#"><li><img src="images/members.png">
+        <p>Page de clients</p>
+      </li></a>
+      <a href="#"><li><img src="images/rewards.png">
+        <p>Pages de produits</p>
+      </li></a>
+      <a href="#"><li><img src="images/projects.png">
+        <p>Bon d'achat</p>
+      </li></a>
+      <a href="#"><li><img src="images/setting.png">
+        <p>Fournisseur</p>
+      </li></a>
+    </ul>
+
+    <ul>
+      <li><img src="images/logout.png">
+        <p>Deconnexion</p>
+      </li>
+    </ul>
   </div>
-</nav>
 
   <div class="container">
     <div class="text-center mb-4">
       <h3>Ajouter un nouvel utilisateur</h3>
       <p class="text-muted">Saisissez le formulaire en dessous pour ajouter un nouvel utilisateur </p>
     </div>
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center" style="box-shadow:none;">
       <form action="" method="post" style="width:50vw; min-width:300px;">
         <div class="row">
           <div class="col">
@@ -112,7 +152,7 @@ if(isset($_POST['submit'])){
       </form>
     </div>
   </div>
-
+</main>
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

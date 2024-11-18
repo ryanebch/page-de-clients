@@ -14,57 +14,85 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="stylesheet" href="./css/style.css">
   <title>PHP CRUD application</title>
 </head>
 
 <body>
-<nav class="navbar_f navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Nouvelle Barre</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-        <a class="nav-link" href="#">CabinetPlus</a>
-        </ul>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-dark fs-2 mb-5 fixed-top" style="background-color: #72A0C1">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Page de client</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="produits.php">Page de produits</a>
-        </li>
-      </ul>
+
+<header class="header fixed-top">
+    <div class="h-bar">
+      <div class="logo">
+        <img src="./images/tooth.png" alt="Logo">
+        <h1>Cabinet<span class="highlight">Plus</span></h1>
+      </div>
+      <nav class="nav-q">
+        <a href="#">Accueil</a>
+        <a href="#">Patients</a>
+        <a href="#">Prothèses</a>
+        <a href="#">Calendrier</a>
+        <div class="dropdown">
+          <a href="#suivre" class="suivre" aria-haspopup="true">Suivre</a>
+          <ul class="suivre-menu">
+            <li><a href="#suivi-produits">Suivi des Produits</a></li>
+            <li><a href="#suivi-achats">Suivi des Achats</a></li>
+            <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
+          </ul>
+        </div>
+      </nav>
+      <button class="profile-circle">Connexion</button>
+
     </div>
+  </header>
+<main>
+  <div class="side-nav">
+    <div class="user">
+      <img src="images/midune.jpg" class="user-img">
+      <div>
+        <h2>midune</h2>
+        <p>midune@gmail.com</p>
+        </div>
+    </div>
+    <ul>
+      <a href="index.php"><li><img src="images/dashboard.png">
+        <p>Dashboard</p>
+      </li></a>
+      <a href="#"><li><img src="images/members.png">
+        <p>Page de clients</p>
+      </li></a>
+      <a href="#"><li><img src="images/rewards.png">
+        <p>Pages de produits</p>
+      </li></a>
+      <a href="#"><li><img src="images/projects.png">
+        <p>Bon d'achat</p>
+      </li></a>
+      <a href="#"><li><img src="images/setting.png">
+        <p>Fournisseur</p>
+      </li></a>
+    </ul>
+
+    <ul>
+      <li><img src="images/logout.png">
+        <p>Deconnexion</p>
+      </li>
+    </ul>
   </div>
-</nav>
-
-
+  
   <div class="container">
-  <?php
+    <?php
   if (isset($_GET['msg'])){
     $msg= $_GET['msg'];
-    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    '.$msg.'
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
+    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">'.$msg.'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
   }
   ?>
-   <a href="add_new.php" class= "btn btn-dark mb-3" style ="background-color:#545AA7;border-color= #545AA7">Ajouter un nouvel utilisateur</a>
-   <form action="" method="get" class="mb-3">
-   <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
-   </form>      
-<table class="table table-hover text-center">
-      <thead class="table-dark">
+    <a href="add_new.php" class="btn btn-dark mb-3" style="background-color:#545AA7;border-color= #545AA7">Ajouter un
+      nouvel utilisateur</a>
+    <form action="" method="get" class="mb-3">
+      <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
+    </form>
+    <table class="table table-hover text-center">
+      <thead class="table-f">
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Prénom</th>
@@ -91,20 +119,33 @@
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)){
          ?>
-            <tr>
-            <th><?php echo $row['id']?></th>
-            <th><?php echo $row['prénom']?></th>
-            <th><?php echo $row['nom']?></th>
-            <th><?php echo $row['email']?></th>
-            <th><?php echo $row['tel']?></th>
-            <th><?php echo $row['sexe']?></th>
+        <tr>
+          <th>
+            <?php echo $row['id']?>
+          </th>
+          <th>
+            <?php echo $row['prénom']?>
+          </th>
+          <th>
+            <?php echo $row['nom']?>
+          </th>
+          <th>
+            <?php echo $row['email']?>
+          </th>
+          <th>
+            <?php echo $row['tel']?>
+          </th>
+          <th>
+            <?php echo $row['sexe']?>
+          </th>
 
-            <td>
-            <a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+          <td>
+            <a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i
+                class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
             <a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
-            </td>
-          </tr>
-         <?php
+          </td>
+        </tr>
+        <?php
         }
         
         ?>
@@ -113,35 +154,41 @@
       if(mysqli_num_rows($result)>0){
         while ($row = mysqli_fetch_assoc($result)){
           ?>
-          <tr>
-            <td class="d-flex align-items-center">
-              <img 
-              style ="
+      <tr>
+        <td class="d-flex align-items-center">
+          <img style="
               height: 50px;
               width: 50px; 
               object-fit:cover;
-              border-radius: 100%;"src="<?php echo $row["image"]?>"
-              alt="Image not found">
-              <div class="ms-2">
-                <span class="h6">
-                  <?php echo $row["prénom"]?>
-                </span>
-                <br>
-                <small class="fw-medium text-body-secondary"></small>
-                ID: <?php echo $row["id"]?>
-              </div>
+              border-radius: 100%;" src="<?php echo $row[" image"]?>"
+          alt="Image not found">
+          <div class="ms-2">
+            <span class="h6">
+              <?php echo $row["prénom"]?>
+            </span>
+            <br>
+            <small class="fw-medium text-body-secondary"></small>
+            ID:
+            <?php echo $row["id"]?>
+          </div>
         </td>
-        <td><?php echo $row["prénom"]?></td>
-        <td><?php echo $row["email"]?></td>
-        <td><?php echo $row["tel"]?></td>
-        </tr>
-        <?php
+        <td>
+          <?php echo $row["prénom"]?>
+        </td>
+        <td>
+          <?php echo $row["email"]?>
+        </td>
+        <td>
+          <?php echo $row["tel"]?>
+        </td>
+      </tr>
+      <?php
         }
       } else {
         echo "Pas de résultats";
       }
       ?>
-        <?php
+      <?php
   $search = isset($_GET['search']) ? $_GET['search'] : '';
   if (!empty($search)) {
       $sql = "SELECT * FROM `crud` WHERE `prénom` LIKE '%$search%' OR `nom` LIKE '%$search%' OR `email` LIKE '%$search%'";
@@ -149,26 +196,18 @@
       $sql = "SELECT * FROM `crud`";
   }?>
     </table>
-    </div>
-
+  </div>
+<main>
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous">
-  const navLinks = document.querySelectorAll('.nav-link');
-  const currentLocation = window.location.href;
-
-  navLinks.forEach(link => {
-    if (link.href === currentLocation) {
-      link.classList.add('active');
-    }
-  });
-
-  </script>
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+    integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+    crossorigin="anonymous"></script>
 
 </body>
-
-</html>
 <?php
 mysqli_close($conn);
 ?>
+</html>
