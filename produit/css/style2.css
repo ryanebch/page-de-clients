@@ -126,7 +126,7 @@ main {
 .side-nav {
   width: 110px;
   min-height: 100%;
-  margin-left: -222px;
+  margin-left: -500px;
   top: 0;
   margin-top: -19px;
   background-image: linear-gradient(to bottom left, #c2ccd1, #f8f8f8);
@@ -259,6 +259,7 @@ ul li:hover {
 
 /* Table Styling */
 .table-f {
+  margin-top: -50px;
   background-color: #95a4b4;
 }
 
