@@ -13,7 +13,20 @@ body {
 
 }
 
+.btn {
+  background-color: #95a4b4;
+  color: white;
+}
 
+.btn:hover {
+  padding: 8px;
+  color: #f1f1f1;
+  background-color: #bdc8d3;
+}
+
+.col {
+  padding-bottom: 15px;
+}
 
 /* Header Styling */
 .header {

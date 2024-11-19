@@ -144,7 +144,7 @@ if(isset($_POST['submit'])){
             <label for="femme" class="form-input-label">Femme</label>
           </div>
           <div>
-            <button type="submit" class="btn btn" name="submit">Sauvegarder</button>
+            <button type="submit" class="btn" name="submit">Sauvegarder</button>
 
             <a href="index.php" class="btn ">Annuler</a>
           </div>
