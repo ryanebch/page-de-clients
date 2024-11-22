@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
    // Afficher les valeurs pour vérifier qu'elles sont récupérées correctement
    var_dump($Nom, $Référence, $Catégorie, $Description, $MarqueFournisseur, $Quantité, $Prix, $DateExp);
       
-        $sql ="INSERT INTO crud(id, prénom, nom, email, tel, sexe) VALUES (NULL,'$prénom','$nom','$email','$tel','$sexe')";
+        $sql ="INSERT INTO `crud`(`id`, `prénom`, `nom`, `email`, `tel`, `sexe`) VALUES (NULL,'$prénom','$nom','$email','$tel','$sexe')";
       
        
       
@@ -23,13 +23,13 @@ if (isset($_POST['submit'])) {
     var_dump($Nom, $Référence, $Catégorie, $Description, $MarqueFournisseur, $Quantité, $Prix, $DateExp);
 
     // Préparer la requête SQL
-    $sql = "INSERT INTO crud (Nom, Référence, Catégorie, Description, MarqueFournisseur, Quantité, Prix, DateExp)
+    $sql = "INSERT INTO `produit` (Nom, Référence, Catégorie, Description, MarqueFournisseur, Quantité, Prix, DateExp)
             VALUES ('$Nom', '$Référence', '$Catégorie', '$Description', '$MarqueFournisseur', '$Quantité', '$Prix', '$DateExp')";
 
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        header("Location: index.php?msg=Nouvel enregistrement créé avec succès");
+        header("Location: index2.php?msg=Nouvel enregistrement créé avec succès");
     } else {
         echo "Erreur : " . mysqli_error($conn);
     }
@@ -60,13 +60,15 @@ mysqli_close($conn);
           crossorigin="anonymous" referrerpolicy="no-referrer">
           <link rel="stylesheet" href="./css/style2.css">
 </head>
+
 <body>
+  <div class="bobody">
     <!-- Navigation Bar -->
     <header class="header fixed-top">
     <div class="h-bar">
       <div class="logo">
-        <img src="./images/tooth.png" alt="Logo">
-        <a href="index.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
+        <img src="../images/tooth.png" alt="Logo">
+        <a href="index2.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
       </div>
       <nav class="nav-q">
         <a href="#">Accueil</a>
@@ -89,32 +91,32 @@ mysqli_close($conn);
 <main>
   <div class="side-nav">
     <div class="user">
-      <img src="images/midune.jpg" class="user-img">
+      <img src="../images/midune.jpg" class="user-img">
       <div>
         <h2>midune</h2>
         <p>midune@gmail.com</p>
         </div>
     </div>
     <ul>
-      <a href="index.php"><li><img src="images/dashboard.png">
+      <a href="index2.php"><li><img src="../images/dashboard.png">
         <p>Dashboard</p>
       </li></a>
-      <a href="#"><li><img src="images/members.png">
+      <a href="#"><li><img src="../images/members.png">
         <p>Page de clients</p>
       </li></a>
-      <a href="#"><li><img src="images/rewards.png">
+      <a href="#"><li><img src="../images/rewards.png">
         <p>Pages de produits</p>
       </li></a>
-      <a href="#"><li><img src="images/projects.png">
+      <a href="#"><li><img src="../images/projects.png">
         <p>Bon d'achat</p>
       </li></a>
-      <a href="#"><li><img src="images/setting.png">
+      <a href="#"><li><img src="../images/setting.png">
         <p>Fournisseur</p>
       </li></a>
     </ul>
 
     <ul>
-      <li><img src="images/logout.png">
+      <li><img src="../images/logout.png">
         <p>Deconnexion</p>
       </li>
     </ul>
@@ -172,7 +174,7 @@ mysqli_close($conn);
                 
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit" style="background-color: blue;">Sauvegarder</button>
-                    <a href="index.php" class="btn btn-danger">Annuler</a>
+                    <a href="index2.php" class="btn btn-danger">Annuler</a>
                 </div>
             </form>
         </div>
@@ -184,6 +186,6 @@ mysqli_close($conn);
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
      crossorigin="anonymous"></script>
-
+</div>
 </body>
 </html>

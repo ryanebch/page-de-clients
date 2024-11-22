@@ -1,4 +1,11 @@
 /* General Styling */
+.bobody {
+
+  margin-left: -40px;
+  margin-top: 0px;
+
+}
+
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -41,7 +48,7 @@ body {
 }
 
 .logo img {
-  height: 40px;
+  height: 41px;
   width: 40px;
 }
 
@@ -120,13 +127,12 @@ main {
   grid-template-columns: 100px 2fr;
   /* Two columns with a 1:2 ratio */
   /* Space between grid items */
-
 }
 
 .side-nav {
   width: 110px;
-  min-height: 100%;
-  margin-left: -500px;
+  min-height: 120%;
+  margin-left: -160px;
   top: 0;
   margin-top: -19px;
   background-image: linear-gradient(to bottom left, #c2ccd1, #f8f8f8);
@@ -247,10 +253,9 @@ ul li:hover {
 .container {
   max-width: 1000px;
   width: 100%;
-  max-height: 94%;
+  min-height: 120%;
   padding: 50px;
-  min-height: 90%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   background-color: #ffffff;
   border-radius: 15px;
   box-sizing: border-box;
@@ -259,7 +264,6 @@ ul li:hover {
 
 /* Table Styling */
 .table-f {
-  margin-top: -50px;
   background-color: #95a4b4;
 }
 

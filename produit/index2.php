@@ -31,13 +31,13 @@ if (isset($_POST['submit'])) {
             echo "Fichier téléchargé avec succès.";
 
             // Préparer la requête SQL pour l'insertion dans la base de données
-            $sql = "INSERT INTO produit (Nom, Référence, Catégorie, Description, Marque_Fournisseur, Quantité, Prix, DateExp, Photo)
+            $sql = "INSERT INTO crud (Nom, Référence, Catégorie, Description, Marque_Fournisseur, Quantité, Prix, DateExp, Photo)
                     VALUES ('$Nom', '$Reference', '$Categorie', '$Description', '$MarqueFournisseur', '$Quantite', '$Prix', '$DateExp', '$new_Photo_name')";
 
             // Exécuter la requête SQL
             if (mysqli_query($conn, $sql)) {
                 echo "Produit ajouté avec succès.";
-                header("Location: index.php?msg=New record created successfully");
+                header("Location: index2.php?msg=New record created successfully");
                 exit();
             } else {
                 echo "Erreur lors de l'insertion : " . mysqli_error($conn);
@@ -69,11 +69,12 @@ mysqli_close($conn);
           <link rel="stylesheet" href="./css/style2.css">
 </head>
 <body>
+<!-- Navigation Bar -->
 <header class="header fixed-top">
     <div class="h-bar">
       <div class="logo">
-        <img src="./images/tooth.png" alt="Logo">
-        <a href="index.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
+        <img src="../images/tooth.png" alt="Logo">
+        <a href="index2.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
       </div>
       <nav class="nav-q">
         <a href="#">Accueil</a>
@@ -96,36 +97,37 @@ mysqli_close($conn);
 <main>
   <div class="side-nav">
     <div class="user">
-      <img src="images/midune.jpg" class="user-img">
+      <img src="../images/midune.jpg" class="user-img">
       <div>
         <h2>midune</h2>
         <p>midune@gmail.com</p>
         </div>
     </div>
     <ul>
-      <a href="index.php"><li><img src="images/dashboard.png">
+      <a href="index2.php"><li><img src="../images/dashboard.png">
         <p>Dashboard</p>
       </li></a>
-      <a href="#"><li><img src="images/members.png">
+      <a href="../index.php"><li><img src="../images/members.png">
         <p>Page de clients</p>
       </li></a>
-      <a href="#"><li><img src="images/rewards.png">
+      <a href="#"><li><img src="../images/rewards.png">
         <p>Pages de produits</p>
       </li></a>
-      <a href="#"><li><img src="images/projects.png">
+      <a href="#"><li><img src="../images/projects.png">
         <p>Bon d'achat</p>
       </li></a>
-      <a href="#"><li><img src="images/setting.png">
+      <a href="#"><li><img src="../images/setting.png">
         <p>Fournisseur</p>
       </li></a>
     </ul>
 
     <ul>
-      <li><img src="images/logout.png">
+      <li><img src="../images/logout.png">
         <p>Deconnexion</p>
       </li>
     </ul>
   </div>
+   
 
   <div class="container">
         <?php
@@ -138,11 +140,11 @@ mysqli_close($conn);
         }
         ?>
 
-        <a href="add_new.php" class="btn btn-dark mb-3"> Ajouter nouveau</a>
+        <a href="add_new2.php" class="btn btn-dark mb-3"> Ajouter nouveau</a>
 
-    </div>
+    
     <table class="table table-hover text-center">
-        <thead class="table-f">
+        <thead class="table-dark">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nom</th>
@@ -159,10 +161,10 @@ mysqli_close($conn);
 
         <tbody>
         <?php
-        include "db_conn.php";
+        include "db_conn2.php";
         
         // Utilisation de la requête préparée pour plus de sécurité
-        $sql = "SELECT * FROM produit";
+        $sql = "SELECT * FROM `produit`";
         if ($result = mysqli_query($conn, $sql)) {
             while ($row = mysqli_fetch_assoc($result)) {
                 ?>
@@ -191,8 +193,7 @@ mysqli_close($conn);
         ?>
         </tbody>
     </table>
-    </div>
-  </main>
+      </div>
 
     <!-- Script Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 

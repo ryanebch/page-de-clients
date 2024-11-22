@@ -46,7 +46,6 @@ if(isset($_POST['submit'])){
 
   <title>PHP CRUD application</title>
 </head>
-
 <body>
 <header class="header fixed-top">
     <div class="h-bar">
