@@ -129,6 +129,10 @@ body {
   color: var(--black);
   cursor: pointer;
   display: none;
+  position: fixed;
+  padding: 10px;
+  z-index: 1001;
+  /* Ensure it's above other elements */
 }
 
 /* Dropdown Menu */
@@ -289,12 +293,12 @@ ul li:hover {
   width: 90%;
   margin-top: 190px;
   padding: 20px;
-  margin-right: 0px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border-radius: 15px;
   box-sizing: border-box;
   margin-bottom: 50px;
+  margin-right: 50px;
 
 }
 
@@ -320,7 +324,21 @@ ul li:hover {
 }
 
 /* Responsive design for screens smaller than 768px */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  article, aside, figcaption, figure, footer, header, hgroup, main, nav, section{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .link-btn {
+    display: none;
+  }
+
+  .container {
+    margin-left: 120px;
+  }
+
+
+
 
   .table {
     display: block;
@@ -362,6 +380,10 @@ ul li:hover {
     padding-right: 10px;
   }
 
+
+
+
+
   #menu-btn {
     display: inline-block;
     transition: .2s linear;
@@ -371,10 +393,11 @@ ul li:hover {
     transform: rotate(180deg);
   }
 
-  .header .nav {
-    position: absolute;
-    top: 99%;
-    left: 0;
+  .side-nav {
+    position: sticky;
+    height: 100vh;
+    min-height: 100%;
+    overflow-x: scroll;
     right: 0;
     background-color: var(--white);
     border-top: var(--border);
@@ -386,14 +409,14 @@ ul li:hover {
     transition: .2s linear;
   }
 
-  .header .nav.active {
+  .side-nav.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    margin-top: 86px;
+
   }
 
-  .header .nav a {
-    margin: 1rem 0;
-    font-size: 2rem;
-  }
+
+  
 
   .home {
     background-position: left;
@@ -405,63 +428,4 @@ ul li:hover {
 
 }
 
-/* Responsive design for smaller screens (phones) */
-@media (max-width: 450px) {
-  .table td {
-    font-size: 1.2rem;
-    padding: 6px;
-  }
 
-  .table td::before {
-    font-size: 1.2rem;
-  }
-
-  html {
-    font-size: 50%;
-  }
-
-  .home .content h3 {
-    font-size: 4rem;
-  }
-
-  .heading {
-    font-size: 3rem;
-  }
-
-  .side-nav {
-    width: 70px;
-    /* Adjust width for smaller screens */
-    margin-top: 20px;
-  }
-
-  .user-img {
-    margin-left: -10px;
-  }
-
-  .container {
-    margin-right: -90px;
-  }
-
-}
-
-@media (max-width: 430px) {
-  .side-nav {
-    margin-top: -10px;
-  }
-}
-
-@media (max-width:300px) {
-  .side-nav {
-    margin-top: -50px;
-  }
-}
-
-@media (min-width:2560px) {
-  .container {
-    align-self: center;
-  }
-
-  .mb-3 {
-    margin-right: -50px;
-  }
-}

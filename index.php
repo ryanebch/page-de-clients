@@ -17,35 +17,36 @@
 </head>
 
 <body>
+<div id="menu-btn" class="fas fa-bars"></div>
 
 <header class="header fixed-top">
-
     <div class="h-bar">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <img src="./images/tooth.png" alt="logo">
+                <a href="#home" class="logo">Cabinet<span>Plus</span></a>
+            </div>
+            
+            <nav class="nav">
+                <a href="#home">Accueil</a>
+                <a href="#">Patients</a>
+                <a href="#">Prothèses</a>
+                <a href="#">Calendrier</a>
+                <div class="dropdown">
+                    <a href="#suivre" class="suivre" >Suivre</a>
+                    <ul class="suivre-menu">
+                        <li><a href="#suivi-produits">Suivi des Produits</a></li>
+                        <li><a href="#suivi-achats">Suivi des Achats</a></li>
+                        <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <button class="link-btn">Connexion</button>
+        </div> <!-- End of row -->
+    </div> <!-- End of h-bar -->
+</header>
 
-    <div class="row align-items-center justify-content-between">
-<div><img src="./images/tooth.png" alt="logo">
-
-      <a href="#home" class="logo">Cabinet<span>Plus</span></a></div>
-      
-      <nav class="nav">
-        <a href="#home">Accueil</a>
-        <a href="#">Patients</a>
-        <a href="#">Prothèses</a>
-        <a href="#">Calendrier</a>
-        <div class="dropdown">
-          <a href="#suivre" class="suivre" aria-haspopup="true">Suivre</a>
-          <ul class="suivre-menu">
-            <li><a href="#suivi-produits">Suivi des Produits</a></li>
-            <li><a href="#suivi-achats">Suivi des Achats</a></li>
-            <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
-          </ul>
-          </div>
-          </nav>
-          <button class="link-btn">Connexion</button>
-        <div id="menu-btn" class="fas fa-bars">
-    </div>
-</div>
-  </header>
 
 <main>
   <div class="side-nav">
@@ -80,7 +81,7 @@
       </li>
     </ul>
   </div>
-  
+</div>
   <div class="container">
     <?php
   if (isset($_GET['msg'])){
@@ -210,6 +211,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
     integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
     crossorigin="anonymous"></script>
+
+<script src="index.js"></script>
 
 </body>
 <?php

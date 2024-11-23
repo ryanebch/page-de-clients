@@ -2,7 +2,7 @@
 
 /* CSS pseudo-class matches the root element of a tree */
 :root {
-  --blue: #7c8ffc;
+  --blue: #9cafeb;
   --black: #333;
   --white: #fff;
   --light-color: #666;
@@ -19,7 +19,6 @@
   outline: none;
   border: none;
   text-decoration: none !important;
-  text-transform: capitalize;
 }
 
 /* The ::-webkit-scrollbar CSS pseudo-element affects the style of an element's scrollbar when it has overflow:scroll; set. */
@@ -67,13 +66,14 @@ section {
 }
 
 .link-btn:hover {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: rgb(224, 224, 240);
+  color: white;
+  transition: 0.3s;
 }
 
 .header {
   padding: 2rem;
-  border-bottom: var(--border);
+  background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 }
@@ -83,6 +83,18 @@ section {
   box-shadow: var(--box-shadow);
   border: 0;
 }
+
+.header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-left: -5px;
+  align-items: center;
+  gap: 10px;
+  margin-top: -20px;
+
+}
+
 
 .header .logo {
   font-size: 3rem;
@@ -108,4 +120,136 @@ section {
   color: var(--black);
   cursor: pointer;
   display: none;
+}
+
+/*home*/
+.home {
+  background: url(dental.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(250, 246, 253, 0.8)
+}
+
+.home .content {
+  width: 55rem;
+  padding: 2rem;
+}
+
+.home .content h3 {
+  font-size: 6rem;
+  text-transform: uppercase;
+  color: #464749;
+}
+
+.home .content p {
+  line-height: 2;
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding: 1rem 0;
+
+}
+
+/*about*/
+.about .row {
+  min-height: 60vh;
+}
+
+.about .content span {
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+.about .content h3 {
+  font-size: 3rem;
+  color: var(--black);
+  margin-top: 1rem;
+}
+
+.about .content .p {
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: var(--light-color);
+  line-height: 2;
+}
+
+/* media queries  */
+
+@media (max-width:991px) {
+
+  html {
+    font-size: 55%;
+  }
+
+  .header .link-btn {
+    display: none;
+  }
+
+  section {
+    padding: 5rem 2rem;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  #menu-btn {
+    display: inline-block;
+    transition: .2s linear;
+  }
+
+  #menu-btn.fa-times {
+    transform: rotate(180deg);
+  }
+
+  .header .nav {
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    border-top: var(--border);
+    border-bottom: var(--border);
+    padding: 1rem 0;
+    text-align: center;
+    flex-flow: column;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: .2s linear;
+  }
+
+  .header .nav.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .header .nav a {
+    margin: 1rem 0;
+    font-size: 2rem;
+  }
+
+  .home {
+    background-position: center;
+  }
+
+  .home .content {
+    width: auto;
+  }
+}
+
+@media (max-width:450px) {
+
+  html {
+    font-size: 50%;
+  }
+
+  .home .content h3 {
+    font-size: 4rem;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
 }
