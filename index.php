@@ -6,12 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- font awesome cdn link  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-  <!-- bootstrap cdn link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
-  <!-- custom css file link  -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="./css/style.css">
   <title>PHP CRUD application</title>
 </head>
@@ -19,16 +22,13 @@
 <body>
 
 <header class="header fixed-top">
-
     <div class="h-bar">
-
-    <div class="row align-items-center justify-content-between">
-<div><img src="./images/tooth.png" alt="logo">
-
-      <a href="#home" class="logo">Cabinet<span>Plus</span></a></div>
-      
-      <nav class="nav">
-        <a href="#home">Accueil</a>
+      <div class="logo">
+        <img src="./images/tooth.png" alt="Logo">
+        <a href="index.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
+      </div>
+      <nav class="nav-q">
+        <a href="#">Accueil</a>
         <a href="#">Patients</a>
         <a href="#">Prothèses</a>
         <a href="#">Calendrier</a>
@@ -39,14 +39,12 @@
             <li><a href="#suivi-achats">Suivi des Achats</a></li>
             <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
           </ul>
-          </div>
-          </nav>
-          <button class="link-btn">Connexion</button>
-        <div id="menu-btn" class="fas fa-bars">
-    </div>
-</div>
-  </header>
+        </div>
+      </nav>
+      <button class="profile-circle">Connexion</button>
 
+    </div>
+  </header>
 <main>
   <div class="side-nav">
     <div class="user">
@@ -63,7 +61,7 @@
       <a href="#"><li><img src="images/members.png">
         <p>Page de clients</p>
       </li></a>
-      <a href="./produit/index2.php"><li><img src="images/rewards.png">
+      <a href="#"><li><img src="images/rewards.png">
         <p>Pages de produits</p>
       </li></a>
       <a href="#"><li><img src="images/projects.png">
@@ -93,7 +91,6 @@
     <form action="" method="get" class="mb-3">
       <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
     </form>
-    <div class="table-wrapper">
     <table class="table table-hover text-center">
       <thead class="table-f">
         <tr>
@@ -107,7 +104,6 @@
         </tr>
       </thead>
       <tbody>
-</div>
         <?php
         include "db_conn.php";
 
@@ -200,7 +196,6 @@
       $sql = "SELECT * FROM `crud`";
   }?>
     </table>
-
   </div>
 <main>
   <!-- bootstrap -->
