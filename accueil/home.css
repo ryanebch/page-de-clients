@@ -245,62 +245,141 @@ section {
 }
 
 /*review*/
-.reviews {
-  background-color: var(--light-bg);
-}
-
-.reviews .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 2rem;
-}
-
-.reviews .box-container .box {
-  background-color: var(--white);
+.testimonials {
+  background-color: #e1e2eb;
+  padding: 40px 20px;
   text-align: center;
-  border-radius: .5rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
 }
 
-.reviews .box-container .box img {
-  height: 10rem;
-  width: 10rem;
+.testimonials h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Style du slider (les slides) */
+.slider {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  display: none;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 50%;
+  margin-left: 180px;
+  margin-bottom: 20px;
 }
 
-.reviews .box-container .box p {
-  padding: 2rem 0;
-  line-height: 2;
+.card h3 {
   font-size: 1.5rem;
-  color: var(--light-color);
-  margin-bottom: 0;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.reviews .box-container .box .stars {
-  padding: .5rem 1.5rem;
-  border-radius: .5rem;
-  background-color: var(--light-bg);
-  margin-bottom: 2rem;
+.card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: #f9c42e;
+}
+
+/* Style des points de navigation (dots) */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
   display: inline-block;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
-.reviews .box-container .box .stars i {
-  font-size: 1.5rem;
-  color: var(--blue);
+.dot.active {
+  background-color: #333;
 }
 
-.reviews .box-container .box h3 {
-  font-size: 2rem;
-  color: var(--black);
+/* Style du formulaire d'avis */
+form {
+  margin-top: 40px;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #ccc;
+  /* Bordure autour du formulaire */
+  border-radius: 8px;
+  /* Bordure arrondie */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  /* Limite la largeur maximale du formulaire */
+  margin-left: auto;
+  margin-right: auto;
+  /* Centrer le formulaire */
 }
 
-.reviews .box-container .box span {
-  color: var(--light-color);
-  font-size: 1.5rem;
+form input,
+form textarea,
+form select {
+  width: 100%;
+  /* Prendre toute la largeur disponible */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* Inclure padding et bordure dans la largeur totale */
 }
 
+form button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  /* S'ajuste à la largeur du formulaire */
+}
 
+form button:hover {
+  background-color: #45a049;
+}
 
 /* media queries  */
 
@@ -366,7 +445,41 @@ section {
   .home .content {
     width: auto;
   }
+
+  .slider {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .dots {
+    flex-direction: column;
+  }
+
+  .dot {
+    margin: 5px 0;
+  }
+
+  form {
+    width: 90%;
+    /* Réduit la largeur du formulaire sur petits écrans */
+  }
+
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    /* Prendre toute la largeur disponible */
+  }
+
+  form button {
+    width: 100%;
+    /* S'ajuste à la largeur du formulaire */
+  }
 }
+
 
 @media (max-width:450px) {
 

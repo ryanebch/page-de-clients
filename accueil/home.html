@@ -163,65 +163,96 @@
   <!-- review section starts -->
   <!-- reviews  -->
 
-  <section class="reviews" id="reviews">
-
-    <h1 class="heading"> Clients Satisfaits </h1>
-
-    <div class="box-container container">
-
-      <div class="box">
-        <img src="./images/leila.jpg" alt="">
-        <p>Une expérience exceptionnelle ! Les conseils étaient clairs et les soins réalisés avec beaucoup de
-          professionnalisme. Je suis ravie de mon nouveau sourire.</p>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+  <section class="testimonials">
+    <h2>Ce que disent nos clients</h2>
+    <div class="slider">
+      <div class="slide">
+        <div class="card">
+          <img src="./images/boutoumi.jpg" alt=" Photo client">
+          <h3>Bachira Boutoumi</h3>
+          <p>"Service exceptionnel et équipe très professionnelle !"</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
         </div>
-        <h3>Leila Oukhrani</h3>
-        <span>Cliente Satisfaite</span>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./images/plombier.jpg" alt=" Photo client">
+          <h3>Plombier</h3>
+          <p>"Service exceptionnel et équipe très professionnelle !"</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="./images/leila.jpg" alt=" Photo client">
+          <h3>Leila Oukhrani</h3>
+          <p>"Service exceptionnel !"</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="girl.jpg" alt=" Photo client">
+          <h3>lynda len</h3>
+          <p>" équipe très professionnelle !"</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="card">
+          <img src="girl.jpg" alt=" Photo client">
+          <h3>lynda len</h3>
+          <p>" équipe très professionnelle !"</p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
       </div>
 
-      <div class="box">
-        <img src="images/plombier.jpg" alt="">
-        <p>Un service impeccable et un docteur professionnel qui prend soin de ses patients. Je suis très satisfaite de
-          mes soins et recommande vivement ce cabinet.</p>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+    </div>
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot "></span>
+      <span class="dot "></span>
+
+    </div>
+    <!-- Formulaire pour entrer un avis client -->
+    <section class="feedback-form">
+      <h2>Donnez votre avis</h2>
+      <form id="feedbackForm">
+        <div class="form-group">
+          <label for="name">Votre nom :</label>
+          <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
         </div>
-        <h3>Plombier Ben Yahia</h3>
-        <span>Client Satisfait</span>
-      </div>
-
-      <div class="box">
-        <img src="images/boutoumi.jpg" alt="">
-        <p>Je suis impressionné par l'attention portée aux détails et la qualité des soins. Toute l'équipe est
-          accueillante et compétente. Merci pour ce superbe sourire !</p>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+        <div class="form-group">
+          <label for="photo">Lien vers votre photo (optionnel) :</label>
+          <input type="file" id="photo" name="photo" placeholder="Entrez le lien de votre photo">
         </div>
-        <h3>Bachira Bouterma</h3>
-        <span>Cliente Satisfaite</span>
-      </div>
+        <div class="form-group">
+          <label for="feedback">Votre avis :</label>
+          <textarea id="feedback" name="feedback" rows="4" placeholder="Partagez votre expérience" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="rating">Votre note :</label>
+          <select id="rating" name="rating" required>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+          </select>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+
+    </section>
 
 
-      <!-- review section ends -->
+    <!-- review section ends -->
 
 
 
 
-      <!-- custom js file link -->
-      <script src="home.js"></script>
+    <!-- custom js file link -->
+    <script src="home.js"></script>
 </body>
 
 </html>
