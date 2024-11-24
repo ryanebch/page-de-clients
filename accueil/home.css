@@ -213,14 +213,21 @@ section {
 }
 
 /*processus*/
+
+.process {
+  background-image: linear-gradient(to top left, rgba(210, 216, 238, 0.8), rgba(255, 255, 255, 0.9));
+
+}
+
 .process .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 2rem;
+
 }
 
 .process .box-container .box {
-  background-color: rgba(241, 243, 233, 0.897);
+  background-image: linear-gradient(to bottom, rgba(96, 175, 255, 0.062), rgba(255, 255, 255, 0.9));
   padding: 2rem;
   border-radius: .5rem;
   text-align: center;
@@ -246,9 +253,10 @@ section {
 
 /*review*/
 .testimonials {
-  background-color: #e1e2eb;
-  padding: 40px 20px;
+  background-color: #f2f2f7;
+  padding: 0px;
   text-align: center;
+  padding-top: 20px;
 }
 
 .testimonials h2 {
@@ -302,7 +310,7 @@ section {
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 1.8rem;
   color: #555;
   margin-bottom: 15px;
 }
@@ -367,7 +375,7 @@ form select {
 
 form button {
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: var(--blue);
   color: white;
   border: none;
   border-radius: 5px;
@@ -378,10 +386,60 @@ form button {
 }
 
 form button:hover {
-  background-color: #45a049;
+  background-color: #b1bddf;
 }
 
 /* media queries  */
+
+/*contact*/
+.footer {
+  background-color: #f9f9fc;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 3rem;
+}
+
+.footer .box-container .box {
+  text-align: center;
+}
+
+.footer .box-container .box i {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  line-height: 5rem;
+  font-size: 2rem;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  color: var(--black);
+}
+
+.footer .box-container .box p {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  text-transform: none;
+}
+
+.footer .credit {
+  text-align: center;
+  border-top: var(--border);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: var(--light-color);
+}
+
+.footer .credit span {
+  color: var(--blue);
+}
 
 @media (max-width:991px) {
 

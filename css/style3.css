@@ -44,6 +44,13 @@ html {
 
 body {
   background-image: linear-gradient(to bottom right, rgba(240, 236, 243, 0.8), rgba(255, 255, 255, 0.9));
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  /* Ensure no default margin on the body */
+
+
 }
 
 .link-btn {
@@ -150,11 +157,6 @@ body {
 
 .dropdown:hover .suivre-menu {
   display: block;
-}
-
-/*col*/
-.col {
-  padding: 20px;
 }
 
 .user {
@@ -265,58 +267,102 @@ ul li:hover {
   justify-content: flex-start;
 }
 
-/* Container Styling */
-.btn {
-  font-size: 1.5rem;
-}
-
-.container {
-  /* Adjust this value based on your header's height */
-  width: 90%;
-  margin-top: 190px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/*-----------------------*/
+.form-container {
   background-color: #ffffff;
-  border-radius: 15px;
-  box-sizing: border-box;
-  margin-bottom: 50px;
-  align-self: center;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 150px;
 }
 
-/* Table Styling */
-/* Responsive Table Styling */
-.table-wrapper {
-  overflow-x: auto;
-  /* Add horizontal scrolling for small screens */
-  margin-top: 20px;
+.form-container p {
+  text-align: center;
+  color: #7a7a7a;
+  margin-bottom: 20px;
 }
 
-.table-f {
-  background-color: #95a4b4;
+
+
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
 }
 
-.table-hover tbody tr:hover {
-  background-color: #f1f1f1;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.table td,
-.table th {
-  font-size: 1.5rem;
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
 }
 
-.from {
-  width: 20px;
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.form-control {
-  width: 200px;
+input[type="radio"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+.radio-group label {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: normal;
+  color: #333;
+}
+
+input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.button-group {
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sauvegarder {
+  background-color: var(--blue);
+}
+
+.sauvegarder:hover {
+  background-color: #afbadf;
+  color: white;
+}
+
+.annuler {
+  background-color: var(--blue);
+}
+
+.annuler:hover {
+  background-color: #afbadf;
+  color: white;
 }
 
 @media (max-width:768px) {
-
-  .container {
-    width: 300px;
-  }
 
   #menu-btn {
     display: inline-block;
@@ -349,55 +395,6 @@ ul li:hover {
   .header .nav a {
     margin: 1rem 0;
     font-size: 2rem;
-  }
-
-}
-
-/* Responsive design for screens smaller than 768px */
-@media (max-width: 1024px) {
-
-  .container {
-    width: 300px;
-  }
-
-  .table {
-    display: block;
-    /* Make the table behave like a block element */
-  }
-
-  .table thead {
-    display: none;
-    /* Hide table header for smaller screens */
-  }
-
-  .table tr {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .table td {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    font-size: 1.4rem;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .table td:last-child {
-    border-bottom: none;
-  }
-
-  .table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    flex-basis: 40%;
-    text-align: left;
-    color: var(--light-color);
-    padding-right: 10px;
   }
 
 }

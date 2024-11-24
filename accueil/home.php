@@ -29,11 +29,11 @@
         </div>
 
         <nav class="nav">
-          <a href="#">Accueil</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Revues</a>
-          <a href="#">Contact</a>
+          <a href="#home">Accueil</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#review">Revues</a>
+          <a href="#contact">Contact</a>
         </nav>
         <button class="link-btn">Rendez-vous</button>
         <div id="menu-btn" class="fas fa-bars">
@@ -78,13 +78,39 @@
             agréable à nos patients. Nous avons pensé à chaque détail de votre visite pour vous garantir une expérience
             relaxante afin que nous puissions nous concentrer sur ce qui compte le plus : vous et vos
             soins.</p>
-          <a href="#contact" class="link-btn">Rendez-vous</a>
+          <a href="#about" class="link-btn">Rendez-vous</a>
         </div>
       </div>
     </div>
   </section>
   <!-- about section ends -->
+  <!-- process section starts -->
+  <section class="process" id="about">
+    <h1 class="heading">Processus de travail</h1>
+    <div class="box-container container">
 
+      <div class="box">
+        <img src="images/process-1.png" alt="">
+        <h3>Dentisterie esthétique</h3>
+        <p>Améliorez l'apparence de vos dents et retrouvez un sourire éclatant grâce à nos solutions esthétiques sur
+          mesure.</p>
+      </div>
+      <div class="box">
+        <img src="images/process-2.png" alt="">
+        <h3>Dentisterie pédiatrique</h3>
+        <p>Offrez à vos enfants des soins dentaires adaptés et une expérience agréable pour garantir leur santé buccale.
+        </p>
+      </div>
+      <div class="box">
+        <img src="images/process-3.png" alt="">
+        <h3>Implants dentaires</h3>
+        <p>Bénéficiez d'implants dentaires solides et esthétiques pour remplacer les dents manquantes de façon durable.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- process section ends -->
   <!-- services section starts -->
   <section class="services" id="services">
 
@@ -133,37 +159,11 @@
   </section>
   <!-- services section ends -->
 
-  <!-- process section starts -->
-  <section class="process">
-    <h1 class="heading">Processus de travail</h1>
-    <div class="box-container container">
 
-      <div class="box">
-        <img src="images/process-1.png" alt="">
-        <h3>Dentisterie esthétique</h3>
-        <p>Améliorez l'apparence de vos dents et retrouvez un sourire éclatant grâce à nos solutions esthétiques sur
-          mesure.</p>
-      </div>
-      <div class="box">
-        <img src="images/process-2.png" alt="">
-        <h3>Dentisterie pédiatrique</h3>
-        <p>Offrez à vos enfants des soins dentaires adaptés et une expérience agréable pour garantir leur santé buccale.
-        </p>
-      </div>
-      <div class="box">
-        <img src="images/process-3.png" alt="">
-        <h3>Implants dentaires</h3>
-        <p>Bénéficiez d'implants dentaires solides et esthétiques pour remplacer les dents manquantes de façon durable.
-        </p>
-      </div>
-
-    </div>
-  </section>
-  <!-- process section ends -->
   <!-- review section starts -->
   <!-- reviews  -->
 
-  <section class="testimonials">
+  <section class="testimonials" id="review">
     <h2>Ce que disent nos clients</h2>
     <div class="slider">
       <div class="slide">
@@ -244,10 +244,45 @@
       </form>
 
     </section>
-
-
     <!-- review section ends -->
+    <!-- contact section starts -->
 
+    <section class="footer" id="contact">
+
+   <div class="box-container container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>numéro de téléphone</h3>
+         <p>+2130541125796</p>
+         <p>+2130614423560</p>
+      </div>
+      
+      <div class="box">
+         <i class="fas fa-map-marker-alt"></i>
+         <h3>notre adresse</h3>
+         <p>blida, algérie - 091005</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-clock"></i>
+         <h3>heures d'ouverture</h3>
+         <p>08:00 - 15h00</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>adresse mail</h3>
+         <p>adresse@gmail.com</p>
+         <p>email@gmail.com</p>
+      </div>
+
+   </div>
+
+   <div class="credit"> &copy; copyright @ <?php echo date('Y'); ?> par <span>boulghour</span>  </div>
+
+</section>
+<!-- contact section starts -->
 
 
 

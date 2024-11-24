@@ -17,17 +17,15 @@
 </head>
 
 <body>
-<div id="menu-btn" class="fas fa-bars"></div>
 
 <header class="header fixed-top">
-    <div class="h-bar">
-        <div class="row align-items-center justify-content-between">
-            <div>
-                <img src="./images/tooth.png" alt="logo">
-                <a href="#home" class="logo">Cabinet<span>Plus</span></a>
-            </div>
-            
-            <nav class="nav">
+
+<div class="h-bar">
+  <div class="row align-items-center justify-content-between">
+    <div><img src="./images/tooth.png" alt="logo">
+      <a href="#home" class="logo">Cabinet<span>Plus</span></a>
+</div>
+    <nav class="nav">
                 <a href="#home">Accueil</a>
                 <a href="#">Patients</a>
                 <a href="#">Prothèses</a>
@@ -41,10 +39,10 @@
                     </ul>
                 </div>
             </nav>
-            
-            <button class="link-btn">Connexion</button>
-        </div> <!-- End of row -->
-    </div> <!-- End of h-bar -->
+    <button class="link-btn">Connexion</button>
+    <div id="menu-btn" class="fas fa-bars">
+    </div>
+  </div>
 </header>
 
 
@@ -82,7 +80,10 @@
     </ul>
   </div>
 </div>
+
   <div class="container">
+
+
     <?php
   if (isset($_GET['msg'])){
     $msg= $_GET['msg'];
@@ -91,7 +92,7 @@
   ?>
     <a href="add_new.php" class="btn btn-dark mb-3" style="background-color:#545AA7;border-color= #545AA7">Ajouter un
       nouvel utilisateur</a>
-    <form action="" method="get" class="mb-3">
+    <form action="" method="get" class="from mb-3">
       <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
     </form>
     <div class="table-wrapper">
@@ -199,7 +200,8 @@
       $sql = "SELECT * FROM `crud` WHERE `prénom` LIKE '%$search%' OR `nom` LIKE '%$search%' OR `email` LIKE '%$search%'";
   } else {
       $sql = "SELECT * FROM `crud`";
-  }?>
+  }
+  ?>
     </table>
 
   </div>
@@ -213,7 +215,6 @@
     crossorigin="anonymous"></script>
 
 <script src="index.js"></script>
-
 </body>
 <?php
 mysqli_close($conn);

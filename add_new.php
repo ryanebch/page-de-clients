@@ -20,6 +20,14 @@ if(isset($_POST['submit'])){
 }
 
 ?>
+<?php if (isset($_GET['msg'])): ?>
+    <div id="success-message" class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php echo htmlspecialchars($_GET['msg']); ?>
+        <!-- Close button -->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+
 
 
 
@@ -33,46 +41,46 @@ if(isset($_POST['submit'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
-
-
+  <!-- bootstrap cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="./css/style3.css">
   <title>PHP CRUD application</title>
 </head>
+
 <body>
 <header class="header fixed-top">
-    <div class="h-bar">
-      <div class="logo">
-        <img src="./images/tooth.png" alt="Logo">
-        <a href="index.php" style="text-decoration:none;"><h1>Cabinet<span class="highlight">Plus</span></h1></a>
-      </div>
-      <nav class="nav-q">
-        <a href="#">Accueil</a>
-        <a href="#">Patients</a>
-        <a href="#">Prothèses</a>
-        <a href="#">Calendrier</a>
-        <div class="dropdown">
-          <a href="#suivre" class="suivre" aria-haspopup="true">Suivre</a>
-          <ul class="suivre-menu">
-            <li><a href="#suivi-produits">Suivi des Produits</a></li>
-            <li><a href="#suivi-achats">Suivi des Achats</a></li>
-            <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
-          </ul>
-        </div>
-      </nav>
-      <button class="profile-circle">Connexion</button>
 
+<div class="h-bar">
+  <div class="row align-items-center justify-content-between">
+    <div><img src="./images/tooth.png" alt="logo">
+      <a href="#home" class="logo">Cabinet<span>Plus</span></a>
+</div>
+    <nav class="nav">
+                <a href="#home">Accueil</a>
+                <a href="#">Patients</a>
+                <a href="#">Prothèses</a>
+                <a href="#">Calendrier</a>
+                <div class="dropdown">
+                    <a href="#suivre" class="suivre" >Suivre</a>
+                    <ul class="suivre-menu">
+                        <li><a href="#suivi-produits">Suivi des Produits</a></li>
+                        <li><a href="#suivi-achats">Suivi des Achats</a></li>
+                        <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
+                    </ul>
+                </div>
+            </nav>
+    <button class="link-btn">Connexion</button>
+    <div id="menu-btn" class="fas fa-bars">
     </div>
-  </header>
+  </div>
+</header>
+
 <main>
-  <div class="side-nav" style="margin-left:-182px;">
+  <div class="side-nav">
     <div class="user">
       <img src="images/midune.jpg" class="user-img">
       <div>
@@ -87,7 +95,7 @@ if(isset($_POST['submit'])){
       <a href="#"><li><img src="images/members.png">
         <p>Page de clients</p>
       </li></a>
-      <a href="#"><li><img src="images/rewards.png">
+      <a href="./produit/index2.php"><li><img src="images/rewards.png">
         <p>Pages de produits</p>
       </li></a>
       <a href="#"><li><img src="images/projects.png">
@@ -104,59 +112,57 @@ if(isset($_POST['submit'])){
       </li>
     </ul>
   </div>
+</div>
+  
+<section>
+<div class="form-container">
+    <h2>Ajouter un nouvel utilisateur</h2>
+    <p>Saisissez le formulaire en dessous pour ajouter un nouvel utilisateur </p>
 
-  <div class="container">
-    <div class="text-center mb-4">
-      <h3>Ajouter un nouvel utilisateur</h3>
-      <p class="text-muted">Saisissez le formulaire en dessous pour ajouter un nouvel utilisateur </p>
-    </div>
-    <div class="container d-flex justify-content-center" style="box-shadow:none;">
-      <form action="" method="post" style="width:50vw; min-width:300px;">
-        <div class="row">
-          <div class="col">
-            <label class="form-label">Prénom:</label>
-            <input type="text" class="form-control" name="prénom" placeholder="Prénom">
-          </div>
+    <form id="userForm" method="post" action="">
+    <div class="form-group">
+        <label for="prénom">Prénom:</label>
+        <input type="text" id="prénom "name="prénom" placeholder="Prénom" required>
+      </div>
+    <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" placeholder="Nom"required>
+      </div>
 
-          <div class="col">
-            <label class="form-label">Nom:</label>
-            <input type="text" class="form-control" name="nom" placeholder="Nom">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Email:</label>
-            <input type="email" class="form-control" name="email" placeholder="name@example.com">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Téléphone:</label>
-            <input type="tel" class="form-control" pattern="^0[1-7][0-9]{7,8}$" name="tel" placeholder="+213">
-          </div>
-
-          <div class="form-group mb-3">
-            <label>Sexe:</label>
-            &nbsp;
-            <input type="radio" class="form-check-input" name="sexe" id="homme" value="homme">
-            <label for="homme" class="form-input-label">Homme</label>
-            &nbsp;
-            <input type="radio" class="form-check-input" name="sexe" id="femme" value="femme">
-            <label for="femme" class="form-input-label">Femme</label>
-          </div>
-          <div>
-            <button type="submit" class="btn" name="submit">Sauvegarder</button>
-
-            <a href="index.php" class="btn ">Annuler</a>
-          </div>
-
-      </form>
-    </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email "name="email" placeholder="name@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="telephone">Numéro de Téléphone:</label>
+        <input type="tel" id="telephone" name="tel" pattern="^0[1-7][0-9]{7,8}$" placeholder="+213" required>
+      </div>
+      <div class="form-group">
+        <label>Sexe:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="sexe" id="homme" value="homme" required>
+            Masculin
+          </label>
+          <label>
+            <input type="radio" name="sexe" id="femme" value="femme">
+            Féminin
+          </label>
+        </div>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="submit" class="btn sauvegarder">Sauvegarder</button>
+        <button class="btn annuler">Annuler</button>
+      </div>
+    </form>
   </div>
-</main>
+</section>
+</body>
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+    <script src="index.js"></script>
 
-</body>
 
 </html>
