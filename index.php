@@ -140,7 +140,7 @@
        data-email="<?php echo $row['email']; ?>"
        data-tel="<?php echo $row['tel']; ?>"
        data-sexe="<?php echo $row['sexe']; ?>"
-       data-description="<?php echo htmlspecialchars($row['description']); ?>"> <!-- Correctly pass the description here -->
+       data-description=""> <!-- Correctly pass the description here -->
       <i class="fa-solid fa-pen-to-square fs-5 me-3"></i>
     </a>
     <!-- View Button -->
@@ -207,67 +207,79 @@
   </div>
 
 
-  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+ <!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg"> <!-- Increased modal size -->
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="editModalLabel">Modifier l'utilisateur</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- Persistent description -->
-        <p class="text-secondary">Modifiez les détails de l'utilisateur. Assurez-vous que les informations sont exactes.</p>
-        
         <!-- Edit form -->
         <form id="editForm" method="post" action="edit_handler.php">
           <input type="hidden" name="id" id="edit-id">
+
+          <!-- Prénom -->
           <div class="mb-3">
             <label for="edit-prénom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="edit-prénom" name="prénom" required>
+            <input type="text" class="form-control" id="edit-prénom" name="prénom" placeholder="Ex: Jean" required>
           </div>
+
+          <!-- Nom -->
           <div class="mb-3">
             <label for="edit-nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="edit-nom" name="nom" required>
+            <input type="text" class="form-control" id="edit-nom" name="nom" placeholder="Ex: Dupont" required>
           </div>
+
+          <!-- Email -->
           <div class="mb-3">
             <label for="edit-email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="edit-email" name="email" required>
+            <input type="email" class="form-control" id="edit-email" name="email" placeholder="Ex: jean.dupont@email.com" required>
           </div>
+
+          <!-- Téléphone -->
           <div class="mb-3">
             <label for="edit-tel" class="form-label">Téléphone</label>
-            <input type="text" class="form-control" id="edit-tel" name="tel" required>
+            <input type="tel" class="form-control" id="edit-tel" name="tel" placeholder="Ex: 0123456789" pattern="[0-9]{10}" required>
           </div>
+
+          <!-- Sexe -->
           <div class="mb-3">
             <label for="edit-sexe" class="form-label">Sexe</label>
             <select class="form-select" id="edit-sexe" name="sexe">
-              <option value="homme">homme</option>
-              <option value="femme">femme</option>
+              <option value="homme">Homme</option>
+              <option value="femme">Femme</option>
             </select>
           </div>
-          <!-- Add Description Field -->
+
+          <!-- Description -->
           <div class="mb-3">
-    <label for="edit-description" class="form-label">Description</label>
-    <textarea class="form-control" id="edit-description" name="description" rows="4"></textarea>
-  </div>
+            <label for="edit-description" class="form-label">Description</label>
+            <textarea class="form-control" id="edit-description" name="description" rows="4" placeholder="Ajoutez une description"></textarea>
+          </div>
+
           <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<!-- View Modal -->
 <!-- View Modal -->
 <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="viewModalLabel">Description de l'utilisateur</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p class="text-secondary">Voici la description de l'utilisateur.</p>
+        <p class="text-secondary">Voici la description de l'utilisateur. Vous pouvez la lire et décider de l'action à prendre.</p>
         <div class="mb-3">
           <label for="view-description" class="form-label">Description</label>
-          <textarea class="form-control" id="view-description" rows="4" readonly></textarea>
+          <textarea class="form-control" id="view-description" rows="6" readonly style="resize: none;"></textarea>
         </div>
       </div>
     </div>

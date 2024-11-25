@@ -13,15 +13,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sexe = $_POST['sexe'];
         $description = $_POST['description'];
 
+        // Get the current date and time for the update
+        $current_datetime = date("Y-m-d H:i:s");
+
+        // Concatenate the datetime with the description
+        $datetime_description = $current_datetime . " - " . $description;
+
         // Prepare the SQL query with placeholders for data
-        $stmt = $conn->prepare("UPDATE crud SET prénom=?, nom=?, email=?, tel=?, sexe=?, description=? WHERE id=?");
-        
+        $stmt = $conn->prepare("UPDATE crud SET prénom=?, nom=?, email=?, tel=?, sexe=?, description=CONCAT(?, '\n', description), description_updated_at=? WHERE id=?");
+
         if ($stmt === false) {
             die('MySQL prepare failed: ' . $conn->error); // Show any prepare statement errors
         }
 
         // Bind the parameters to the query
-        $stmt->bind_param("ssssssi", $prénom, $nom, $email, $tel, $sexe, $description, $id);
+        $stmt->bind_param("sssssssi", $prénom, $nom, $email, $tel, $sexe, $datetime_description, $current_datetime, $id);
 
         // Execute the query and check for success
         if ($stmt->execute()) {
