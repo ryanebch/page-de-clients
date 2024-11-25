@@ -35,10 +35,10 @@ if(isset($_POST['submit'])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+  <!-- bootstrap cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="./css/style4.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -48,11 +48,71 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #6699CC">
-    PHP Complete CRUD application
-  </nav>
+<header class="header fixed-top">
+
+<div class="h-bar">
+  <div class="row align-items-center justify-content-between">
+    <div><img src="./images/tooth.png" alt="logo">
+      <a href="#home" class="logo">Cabinet<span>Plus</span></a>
+</div>
+    <nav class="nav">
+                <a href="#home">Accueil</a>
+                <a href="#">Patients</a>
+                <a href="#">Prothèses</a>
+                <a href="#">Calendrier</a>
+                <div class="dropdown">
+                    <a href="#suivre" class="suivre" >Suivre</a>
+                    <ul class="suivre-menu">
+                        <li><a href="#suivi-produits">Suivi des Produits</a></li>
+                        <li><a href="#suivi-achats">Suivi des Achats</a></li>
+                        <li><a href="#suivi-protheses">Suivi des Prothèses</a></li>
+                    </ul>
+                </div>
+            </nav>
+    <button class="link-btn">Connexion</button>
+    <div id="menu-btn" class="fas fa-bars">
+    </div>
+  </div>
+</header>
+
+
+<main>
+  <div class="side-nav">
+    <div class="user">
+      <img src="images/midune.jpg" class="user-img">
+      <div>
+        <h2>midune</h2>
+        <p>midune@gmail.com</p>
+        </div>
+    </div>
+    <ul>
+      <a href="index.php"><li><img src="images/dashboard.png">
+        <p>Dashboard</p>
+      </li></a>
+      <a href="#"><li><img src="images/members.png">
+        <p>Page de clients</p>
+      </li></a>
+      <a href="./produit/index2.php"><li><img src="images/rewards.png">
+        <p>Pages de produits</p>
+      </li></a>
+      <a href="#"><li><img src="images/projects.png">
+        <p>Bon d'achat</p>
+      </li></a>
+      <a href="#"><li><img src="images/setting.png">
+        <p>Fournisseur</p>
+      </li></a>
+    </ul>
+
+    <ul>
+      <li><img src="images/logout.png">
+        <p>Deconnexion</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
   <div class="container">
-    <div class="text-center mb-4">
+    <div class="text-center">
       <h3>Modifier les informations de l'utilisateur</h3>
       <p class="text-muted">Cliquez sur "Mettre à jour" après avoir modifié les informations.</p>
     </div>
@@ -63,46 +123,51 @@ if(isset($_POST['submit'])){
     $row = mysqli_fetch_assoc($result);
     ?>
 
-    <div class="container d-flex justify-content-center">
-      <form action="" method="post" style="width:50vw; min-width:300px;">
-        <div class="row">
-          <div class="col">
-            <label class="form-label">Prénom:</label>
-            <input type="text" class="form-control" name="prénom" value="<?php echo  $row['prénom']?>">
-          </div>
-
-          <div class="col">
-            <label class="form-label">Nom:</label>
-            <input type="text" class="form-control" name="nom" value="<?php echo  $row['nom']?>">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Email:</label>
-            <input type="email" class="form-control" name="email" value="<?php echo  $row['email']?>">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Téléphone:</label>
-            <input type="tel" class="form-control" pattern="^0[1-7][0-9]{7,8}$" name="tel" value="<?php echo  $row['tel']?>">
-          </div>
-
-          <div class="form-group mb-3">
-            <label>Sexe:</label>
-            &nbsp;
-            <input type="radio" class="form-check-input" name="sexe" id="homme" value="homme" <?php echo ($row['sexe']=='homme')?"checked":""?>>
-            <label for="homme" class="form-input-label">Homme</label>
-            &nbsp;
-            <input type="radio" class="form-check-input" name="sexe" id="femme" value="femme" <?php echo ($row['sexe']=='femme')?"checked":""?>>
-            <label for="femme" class="form-input-label">Femme</label>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-success" name="submit">Mettre à jour</button>
-
-            <a href="index.php" class="btn btn-danger">Annuler</a>
-          </div>
-
-      </form>
+  <form action="" method="post">
+    <!-- Row for first and last name -->
+    <div class="row">
+      <div class="col">
+        <label for="prénom" class="form-label">Prénom:</label>
+        <input type="text" id="prénom" class="form-control" name="prénom" value="<?php echo  $row['prénom'] ?>" required>
+      </div>
+      <div class="col">
+        <label for="nom" class="form-label">Nom:</label>
+        <input type="text" id="nom" class="form-control" name="nom" value="<?php echo  $row['nom'] ?>" required>
+      </div>
     </div>
+
+    <!-- Email field -->
+    <div class=">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" class="form-control" name="email" value="<?php echo  $row['email'] ?>" required>
+    </div>
+
+    <!-- Phone field -->
+    <div class="">
+      <label for="tel" class="form-label">Téléphone:</label>
+      <input type="tel" id="tel" class="form-control" pattern="^0[1-7][0-9]{7,8}$" name="tel" value="<?php echo  $row['tel'] ?>" required>
+    </div>
+
+    <!-- Gender selection -->
+    <div class="form-group">
+      <label class="form-label">Sexe:</label>
+      <div>
+        <input type="radio" class="form-check-input" name="sexe" id="homme" value="homme" <?php echo ($row['sexe'] == 'homme') ? "checked" : "" ?>>
+        <label for="homme" class="form-input-label">Homme</label>
+
+        <input type="radio" class="form-check-input" name="sexe" id="femme" value="femme" <?php echo ($row['sexe'] == 'femme') ? "checked" : "" ?>>
+        <label for="femme" class="form-input-label">Femme</label>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div>
+      <button type="submit" class="btn btn-success" name="submit">Mettre à jour</button>
+      <a href="index.php" class="btn btn-danger">Annuler</a>
+    </div>
+  </form>
+</div>
+
   </div>
 
   <!-- bootstrap -->
