@@ -17,15 +17,17 @@
 </head>
 
 <body>
+<div id="menu-btn" class="fas fa-bars"></div>
 
 <header class="header fixed-top">
-
-<div class="h-bar">
-  <div class="row align-items-center justify-content-between">
-    <div><img src="./images/tooth.png" alt="logo">
-      <a href="#home" class="logo">Cabinet<span>Plus</span></a>
-</div>
-    <nav class="nav">
+    <div class="h-bar">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <img src="./images/tooth.png" alt="logo">
+                <a href="#home" class="logo">Cabinet<span>Plus</span></a>
+            </div>
+            
+            <nav class="nav">
                 <a href="#home">Accueil</a>
                 <a href="#">Patients</a>
                 <a href="#">Prothèses</a>
@@ -39,10 +41,10 @@
                     </ul>
                 </div>
             </nav>
-    <button class="link-btn">Connexion</button>
-    <div id="menu-btn" class="fas fa-bars">
-    </div>
-  </div>
+            
+            <button class="link-btn">Connexion</button>
+        </div> <!-- End of row -->
+    </div> <!-- End of h-bar -->
 </header>
 
 
@@ -80,10 +82,7 @@
     </ul>
   </div>
 </div>
-
   <div class="container">
-
-
     <?php
   if (isset($_GET['msg'])){
     $msg= $_GET['msg'];
@@ -92,7 +91,7 @@
   ?>
     <a href="add_new.php" class="btn btn-dark mb-3" style="background-color:#545AA7;border-color= #545AA7">Ajouter un
       nouvel utilisateur</a>
-    <form action="" method="get" class="from mb-3">
+    <form action="" method="get" class="mb-3">
       <input type="text" name="search" class="form-control mb-3" placeholder="Rechercher un utilisateur" />
     </form>
     <div class="table-wrapper">
@@ -126,30 +125,33 @@
         while ($row = mysqli_fetch_assoc($result)){
          ?>
         <tr>
-          <th>
-            <?php echo $row['id']?>
-          </th>
-          <th>
-            <?php echo $row['prénom']?>
-          </th>
-          <th>
-            <?php echo $row['nom']?>
-          </th>
-          <th>
-            <?php echo $row['email']?>
-          </th>
-          <th>
-            <?php echo $row['tel']?>
-          </th>
-          <th>
-            <?php echo $row['sexe']?>
-          </th>
+  <td><?php echo $row['id']; ?></td>
+  <td><?php echo $row['prénom']; ?></td>
+  <td><?php echo $row['nom']; ?></td>
+  <td><?php echo $row['email']; ?></td>
+  <td><?php echo $row['tel']; ?></td>
+  <td><?php echo $row['sexe']; ?></td>
+  <td>
+    <!-- Edit Button -->
+    <a href="#" class="link-dark edit-btn"
+       data-id="<?php echo $row['id']; ?>"
+       data-prénom="<?php echo $row['prénom']; ?>"
+       data-nom="<?php echo $row['nom']; ?>"
+       data-email="<?php echo $row['email']; ?>"
+       data-tel="<?php echo $row['tel']; ?>"
+       data-sexe="<?php echo $row['sexe']; ?>"
+       data-description="<?php echo htmlspecialchars($row['description']); ?>"> <!-- Correctly pass the description here -->
+      <i class="fa-solid fa-pen-to-square fs-5 me-3"></i>
+    </a>
+    <!-- View Button -->
+    <a href="#" class="link-dark view-btn"
+       data-description="<?php echo htmlspecialchars($row['description']); ?>"> <!-- Pass description for viewing -->
+      <i class="fa-solid fa-eye fs-5"></i>
+    </a>
+  </td>
+</tr>
 
-          <td>
-            <a href="edit.php?id=<?php echo $row['id']?>" class="link-dark"><i
-                class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
-            <a href="delete.php?id=<?php echo $row['id']?>" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
-          </td>
+</td>
         </tr>
         <?php
         }
@@ -200,11 +202,78 @@
       $sql = "SELECT * FROM `crud` WHERE `prénom` LIKE '%$search%' OR `nom` LIKE '%$search%' OR `email` LIKE '%$search%'";
   } else {
       $sql = "SELECT * FROM `crud`";
-  }
-  ?>
+  }?>
     </table>
-
   </div>
+
+
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Modifier l'utilisateur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Persistent description -->
+        <p class="text-secondary">Modifiez les détails de l'utilisateur. Assurez-vous que les informations sont exactes.</p>
+        
+        <!-- Edit form -->
+        <form id="editForm" method="post" action="edit_handler.php">
+          <input type="hidden" name="id" id="edit-id">
+          <div class="mb-3">
+            <label for="edit-prénom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="edit-prénom" name="prénom" required>
+          </div>
+          <div class="mb-3">
+            <label for="edit-nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="edit-nom" name="nom" required>
+          </div>
+          <div class="mb-3">
+            <label for="edit-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="edit-email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="edit-tel" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" id="edit-tel" name="tel" required>
+          </div>
+          <div class="mb-3">
+            <label for="edit-sexe" class="form-label">Sexe</label>
+            <select class="form-select" id="edit-sexe" name="sexe">
+              <option value="homme">homme</option>
+              <option value="femme">femme</option>
+            </select>
+          </div>
+          <!-- Add Description Field -->
+          <div class="mb-3">
+    <label for="edit-description" class="form-label">Description</label>
+    <textarea class="form-control" id="edit-description" name="description" rows="4"></textarea>
+  </div>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- View Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewModalLabel">Description de l'utilisateur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-secondary">Voici la description de l'utilisateur.</p>
+        <div class="mb-3">
+          <label for="view-description" class="form-label">Description</label>
+          <textarea class="form-control" id="view-description" rows="4" readonly></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <main>
   <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -215,6 +284,7 @@
     crossorigin="anonymous"></script>
 
 <script src="index.js"></script>
+
 </body>
 <?php
 mysqli_close($conn);
