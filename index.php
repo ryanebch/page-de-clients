@@ -30,7 +30,6 @@
             <nav class="nav">
                 <a href="#home">Accueil</a>
                 <a href="#">Patients</a>
-                <a href="#">Prothèses</a>
                 <a href="#">Calendrier</a>
                 <div class="dropdown">
                     <a href="#suivre" class="suivre" >Suivre</a>
@@ -66,6 +65,9 @@
       </li></a>
       <a href="./produit/index2.php"><li><img src="images/rewards.png">
         <p>Pages de produits</p>
+      </li></a>
+      <a href="./produit/index2.php"><li><img src="images/prothese.png">
+        <p>Pages de prothèses</p>
       </li></a>
       <a href="#"><li><img src="images/projects.png">
         <p>Bon d'achat</p>
